@@ -13,6 +13,7 @@
 		680B1ABA1D0B159000C27C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680B1AB91D0B159000C27C48 /* Assets.xcassets */; };
 		680B1ABD1D0B159000C27C48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680B1ABB1D0B159000C27C48 /* LaunchScreen.storyboard */; };
 		680B1AC81D0B159000C27C48 /* CachingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680B1AC71D0B159000C27C48 /* CachingUITests.swift */; };
+		685C4C6B1D0B3ACE0013F389 /* urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = 685C4C6A1D0B3ACE0013F389 /* urls.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		680B1AC31D0B159000C27C48 /* CachingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CachingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		680B1AC71D0B159000C27C48 /* CachingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingUITests.swift; sourceTree = "<group>"; };
 		680B1AC91D0B159000C27C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		685C4C6A1D0B3ACE0013F389 /* urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = urls.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		680B1AB11D0B159000C27C48 /* Caching */ = {
 			isa = PBXGroup;
 			children = (
+				685C4C6A1D0B3ACE0013F389 /* urls.plist */,
 				680B1AB21D0B159000C27C48 /* AppDelegate.swift */,
 				680B1AB41D0B159000C27C48 /* ViewController.swift */,
 				680B1AB61D0B159000C27C48 /* Main.storyboard */,
@@ -179,6 +182,7 @@
 			files = (
 				680B1ABD1D0B159000C27C48 /* LaunchScreen.storyboard in Resources */,
 				680B1ABA1D0B159000C27C48 /* Assets.xcassets in Resources */,
+				685C4C6B1D0B3ACE0013F389 /* urls.plist in Resources */,
 				680B1AB81D0B159000C27C48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +390,7 @@
 				680B1ACE1D0B159000C27C48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		680B1ACF1D0B159000C27C48 /* Build configuration list for PBXNativeTarget "CachingUITests" */ = {
 			isa = XCConfigurationList;
@@ -394,6 +399,7 @@
 				680B1AD11D0B159000C27C48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
