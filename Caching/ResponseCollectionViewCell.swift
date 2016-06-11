@@ -1,8 +1,8 @@
 //
-//  ResponseTableViewCell.swift
+//  ResponseCollectionViewCell.swift
 //  Caching
 //
-//  Created by id on 6/10/16.
+//  Created by id on 6/11/16.
 //  Copyright © 2016 id. All rights reserved.
 //
 
@@ -14,11 +14,10 @@ enum HeaderFields: String {
     case Date
     case XCache = "X-Cache"
     case XRateLimitRemaining = "X-RateLimit-Remaining"
-
-    static let allFields = [Age, Connection, Date, XCache, XRateLimitRemaining]
 }
 
-class ResponseTableViewCell: UITableViewCell {
+class ResponseCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var responseLabel: UILabel!
 
     var response: NSURLResponse!
@@ -36,14 +35,9 @@ class ResponseTableViewCell: UITableViewCell {
                 return
             }
 
-            let headers = response.allHeaderFields
-            var a = [String]()
-            for header in HeaderFields.allFields {
-                a.append("\(header.rawValue) \(headers[header.rawValue]!)")
+            if let apiRemaining = response.allHeaderFields[HeaderFields.XRateLimitRemaining.rawValue] as? String {
+                self.responseLabel.text = apiRemaining
             }
-
-            let b = a.joinWithSeparator("\n")
-            self.responseLabel.text = b
         })
         task?.resume()
     }

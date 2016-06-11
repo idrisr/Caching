@@ -4,10 +4,12 @@
 
 import UIKit
 
+private let ResponseCollectionViewCellIdentifier = "ResponseCell"
+
 class ViewController: UIViewController {
     var session: NSURLSession?
+    @IBOutlet weak var collectionView: UICollectionView!
 
-    @IBOutlet weak var tableView: UITableView!
     let dates = [ "2015-05-01", "2015-05-02", "2015-05-03", "2015-05-04",
         "2015-05-05", "2015-05-06", "2015-05-07", "2015-05-08", "2015-05-09",
         "2015-05-10", "2015-05-11", "2015-05-12", "2015-05-13", "2015-05-14",
@@ -21,8 +23,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        registerCollectionViewCells()
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
 
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         session = NSURLSession(configuration: config)
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func refreshPressed(sender: AnyObject?) {
-        self.tableView.reloadData()
+        self.collectionView.reloadData()
     }
 
     @IBAction func onClearCachePressed(sender: UIButton) {
@@ -38,49 +41,24 @@ class ViewController: UIViewController {
         self.refreshPressed(nil)
     }
 
-    // make each request
-    func makeRequest(URL: NSURL?) {
-        guard let URL = URL else {
-            return
-        }
-
-        let request = NSURLRequest(URL: URL)
-        let task = self.session?.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
-            if error == nil {
-                guard let httpResponse = response as? NSHTTPURLResponse else {
-                    return
-                }
-
-                guard httpResponse.statusCode == 200 else {
-                    return
-                }
-                print("\(response)")
-
-            } else {
-                print(error?.localizedDescription)
-            }
-
-        })
-        task?.resume()
+    func registerCollectionViewCells() {
+        collectionView?.registerNib(UINib(nibName: "ResponseCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: ResponseCollectionViewCellIdentifier)
     }
 }
 
-extension ViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ViewController: UICollectionViewDelegate {
+
+}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dates.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let reuseID = "responseCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseID, forIndexPath: indexPath) as? ResponseTableViewCell
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ResponseCollectionViewCellIdentifier, forIndexPath: indexPath) as! ResponseCollectionViewCell
         let URL = self.urls![indexPath.row]
-        cell!.configure(URL)
-        return cell!
-    }
-}
-
-extension ViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 120
+        cell.configure(URL)
+        return cell
     }
 }
