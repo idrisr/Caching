@@ -13,7 +13,10 @@
 		680B1ABA1D0B159000C27C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680B1AB91D0B159000C27C48 /* Assets.xcassets */; };
 		680B1ABD1D0B159000C27C48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680B1ABB1D0B159000C27C48 /* LaunchScreen.storyboard */; };
 		680B1AC81D0B159000C27C48 /* CachingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680B1AC71D0B159000C27C48 /* CachingUITests.swift */; };
-		685C4C6B1D0B3ACE0013F389 /* urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = 685C4C6A1D0B3ACE0013F389 /* urls.plist */; };
+		685C4C6D1D0B3B410013F389 /* wtf.plist in Resources */ = {isa = PBXBuildFile; fileRef = 685C4C6C1D0B3B410013F389 /* wtf.plist */; };
+		685C4C6F1D0B3E250013F389 /* urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = 685C4C6E1D0B3E250013F389 /* urls.plist */; };
+		685C4C711D0B74710013F389 /* ResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685C4C701D0B74710013F389 /* ResponseTableViewCell.swift */; };
+		685C4C731D0B77170013F389 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685C4C721D0B77170013F389 /* NetworkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,11 @@
 		680B1AC31D0B159000C27C48 /* CachingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CachingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		680B1AC71D0B159000C27C48 /* CachingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingUITests.swift; sourceTree = "<group>"; };
 		680B1AC91D0B159000C27C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		685C4C6A1D0B3ACE0013F389 /* urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = urls.plist; sourceTree = "<group>"; };
+		685C4C6C1D0B3B410013F389 /* wtf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wtf.plist; sourceTree = "<group>"; };
+		685C4C6E1D0B3E250013F389 /* urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = urls.plist; sourceTree = "<group>"; };
+		685C4C701D0B74710013F389 /* ResponseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTableViewCell.swift; sourceTree = "<group>"; };
+		685C4C721D0B77170013F389 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		685C4C741D0B85C30013F389 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +68,7 @@
 		680B1AA61D0B159000C27C48 = {
 			isa = PBXGroup;
 			children = (
+				685C4C6C1D0B3B410013F389 /* wtf.plist */,
 				680B1AB11D0B159000C27C48 /* Caching */,
 				680B1AC61D0B159000C27C48 /* CachingUITests */,
 				680B1AB01D0B159000C27C48 /* Products */,
@@ -79,7 +87,10 @@
 		680B1AB11D0B159000C27C48 /* Caching */ = {
 			isa = PBXGroup;
 			children = (
-				685C4C6A1D0B3ACE0013F389 /* urls.plist */,
+				685C4C6E1D0B3E250013F389 /* urls.plist */,
+				685C4C701D0B74710013F389 /* ResponseTableViewCell.swift */,
+				685C4C721D0B77170013F389 /* NetworkClient.swift */,
+				685C4C741D0B85C30013F389 /* MyPlayground.playground */,
 				680B1AB21D0B159000C27C48 /* AppDelegate.swift */,
 				680B1AB41D0B159000C27C48 /* ViewController.swift */,
 				680B1AB61D0B159000C27C48 /* Main.storyboard */,
@@ -180,9 +191,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				685C4C6D1D0B3B410013F389 /* wtf.plist in Resources */,
+				685C4C6F1D0B3E250013F389 /* urls.plist in Resources */,
 				680B1ABD1D0B159000C27C48 /* LaunchScreen.storyboard in Resources */,
 				680B1ABA1D0B159000C27C48 /* Assets.xcassets in Resources */,
-				685C4C6B1D0B3ACE0013F389 /* urls.plist in Resources */,
 				680B1AB81D0B159000C27C48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				680B1AB51D0B159000C27C48 /* ViewController.swift in Sources */,
+				685C4C711D0B74710013F389 /* ResponseTableViewCell.swift in Sources */,
 				680B1AB31D0B159000C27C48 /* AppDelegate.swift in Sources */,
+				685C4C731D0B77170013F389 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
