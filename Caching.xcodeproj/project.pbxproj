@@ -13,7 +13,6 @@
 		680B1ABA1D0B159000C27C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680B1AB91D0B159000C27C48 /* Assets.xcassets */; };
 		680B1ABD1D0B159000C27C48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680B1ABB1D0B159000C27C48 /* LaunchScreen.storyboard */; };
 		680B1AC81D0B159000C27C48 /* CachingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680B1AC71D0B159000C27C48 /* CachingUITests.swift */; };
-		685C4C6F1D0B3E250013F389 /* urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = 685C4C6E1D0B3E250013F389 /* urls.plist */; };
 		685C4C731D0B77170013F389 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685C4C721D0B77170013F389 /* NetworkClient.swift */; };
 		685C4C781D0C6B000013F389 /* ResponseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685C4C771D0C6B000013F389 /* ResponseCollectionViewCell.swift */; };
 		685C4C7C1D0C7DD30013F389 /* ResponseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685C4C7B1D0C7DD30013F389 /* ResponseCollectionViewCell.xib */; };
@@ -40,10 +39,9 @@
 		680B1AC31D0B159000C27C48 /* CachingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CachingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		680B1AC71D0B159000C27C48 /* CachingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingUITests.swift; sourceTree = "<group>"; };
 		680B1AC91D0B159000C27C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		685C4C6E1D0B3E250013F389 /* urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = urls.plist; sourceTree = "<group>"; };
 		685C4C721D0B77170013F389 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		685C4C771D0C6B000013F389 /* ResponseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionViewCell.swift; sourceTree = "<group>"; };
-		685C4C7B1D0C7DD30013F389 /* ResponseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResponseCollectionViewCell.xib; sourceTree = "<group>"; };
+		685C4C7B1D0C7DD30013F389 /* ResponseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ResponseCollectionViewCell.xib; path = ../ResponseCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,6 @@
 		680B1AA61D0B159000C27C48 = {
 			isa = PBXGroup;
 			children = (
-				685C4C7B1D0C7DD30013F389 /* ResponseCollectionViewCell.xib */,
 				680B1AB11D0B159000C27C48 /* Caching */,
 				680B1AC61D0B159000C27C48 /* CachingUITests */,
 				680B1AB01D0B159000C27C48 /* Products */,
@@ -86,8 +83,8 @@
 		680B1AB11D0B159000C27C48 /* Caching */ = {
 			isa = PBXGroup;
 			children = (
-				685C4C6E1D0B3E250013F389 /* urls.plist */,
 				685C4C771D0C6B000013F389 /* ResponseCollectionViewCell.swift */,
+				685C4C7B1D0C7DD30013F389 /* ResponseCollectionViewCell.xib */,
 				685C4C721D0B77170013F389 /* NetworkClient.swift */,
 				680B1AB21D0B159000C27C48 /* AppDelegate.swift */,
 				680B1AB41D0B159000C27C48 /* ViewController.swift */,
@@ -189,7 +186,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				685C4C6F1D0B3E250013F389 /* urls.plist in Resources */,
 				680B1ABD1D0B159000C27C48 /* LaunchScreen.storyboard in Resources */,
 				680B1ABA1D0B159000C27C48 /* Assets.xcassets in Resources */,
 				685C4C7C1D0C7DD30013F389 /* ResponseCollectionViewCell.xib in Resources */,
@@ -347,6 +343,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.idrisr.Caching;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -358,6 +355,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.idrisr.Caching;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,22 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i69-y1-ZTf">
-                                <rect key="frame" x="125" y="28" width="53" height="30"/>
-                                <state key="normal" title="Refresh"/>
-                                <connections>
-                                    <action selector="refreshPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vLI-pa-LAA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9W-h8-9wR">
-                                <rect key="frame" x="410" y="28" width="84" height="30"/>
-                                <state key="normal" title="Clear Cache"/>
-                                <connections>
-                                    <action selector="onClearCachePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ar-Is-EEw"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NpD-Mg-fgd">
-                                <rect key="frame" x="0.0" y="66" width="600" height="534"/>
+                                <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zmJ-8g-h3p">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -42,24 +27,36 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BbV-ja-hms">
+                                <rect key="frame" x="0.0" y="20" width="600" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-Gv-L9W">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                        <state key="normal" title="Refresh"/>
+                                        <connections>
+                                            <action selector="refreshPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kgc-ev-rXq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xr-US-H2d">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="30"/>
+                                        <state key="normal" title="Clear Cache"/>
+                                        <connections>
+                                            <action selector="onClearCachePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UzS-us-111"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="i69-y1-ZTf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="105" id="2XW-zZ-sNq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="k9W-h8-9wR" secondAttribute="trailing" constant="86" id="4hb-bs-lFG"/>
+                            <constraint firstItem="NpD-Mg-fgd" firstAttribute="top" secondItem="BbV-ja-hms" secondAttribute="bottom" constant="8" symbolic="YES" id="8sU-x1-Naa"/>
                             <constraint firstAttribute="trailing" secondItem="NpD-Mg-fgd" secondAttribute="trailing" id="9bU-qw-XjN"/>
-                            <constraint firstItem="i69-y1-ZTf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cek-7A-ILs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NpD-Mg-fgd" secondAttribute="bottom" id="DOW-ek-7Xp"/>
                             <constraint firstItem="NpD-Mg-fgd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ixr-mp-cFJ"/>
-                            <constraint firstItem="k9W-h8-9wR" firstAttribute="baseline" secondItem="i69-y1-ZTf" secondAttribute="baseline" id="cCB-nY-vMy"/>
-                            <constraint firstItem="NpD-Mg-fgd" firstAttribute="top" secondItem="i69-y1-ZTf" secondAttribute="bottom" constant="8" symbolic="YES" id="ibR-jw-iyQ"/>
-                            <constraint firstItem="i69-y1-ZTf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="pJ2-JD-khU"/>
+                            <constraint firstAttribute="trailing" secondItem="BbV-ja-hms" secondAttribute="trailing" id="Oue-Ce-EpR"/>
+                            <constraint firstItem="BbV-ja-hms" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="fcm-uc-i4o"/>
+                            <constraint firstItem="BbV-ja-hms" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y3B-eH-jBB"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Cek-7A-ILs"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="NpD-Mg-fgd" id="wI6-MR-mYt"/>

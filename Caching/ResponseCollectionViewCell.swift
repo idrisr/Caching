@@ -19,12 +19,17 @@ enum HeaderFields: String {
 class ResponseCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var responseLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 
     var response: NSURLResponse!
     var task: NSURLSessionDataTask?
 
-    func configure(URL: NSURL) {
+    func configure(date: String) {
+        let URL = NasaURL(date: date).url
+        spinner.startAnimating()
+
         self.task = NetworkClient.sharedInstance.getURLResponse(URL, completion: { (object, error) in
+            self.spinner.stopAnimating()
             guard error == nil else {
                 print("\(error)")
                 return
@@ -37,6 +42,8 @@ class ResponseCollectionViewCell: UICollectionViewCell {
 
             if let apiRemaining = response.allHeaderFields[HeaderFields.XRateLimitRemaining.rawValue] as? String {
                 self.responseLabel.text = apiRemaining
+                let day = date.substringWithRange(Range<String.Index>(date.startIndex.advancedBy(5)..<date.endIndex))
+                self.dateLabel.text = day
             }
         })
         task?.resume()
@@ -46,6 +53,8 @@ class ResponseCollectionViewCell: UICollectionViewCell {
         if let task = task {
             task.cancel()
         }
+
         responseLabel.text = nil
+        dateLabel.text = nil
     }
 }

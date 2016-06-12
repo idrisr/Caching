@@ -13,18 +13,9 @@ typealias NetworkResult = (AnyObject?, ErrorType?) -> Void
 class NetworkClient: NSObject {
     static let sharedInstance = NetworkClient()
 
-    override private init() {
-    }
-
-    var session: NSURLSession {
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)
-        return session
-    }
-
     func getURLResponse(URL: NSURL, completion: NetworkResult) -> NSURLSessionDataTask {
         let request = NSURLRequest(URL: URL)
-        let task = NetworkClient.sharedInstance.session.dataTaskWithRequest(request) { (data, response, error) in
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
             if error == nil {
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     completion(response, nil)
@@ -48,7 +39,9 @@ struct NasaURL {
 
     var url: NSURL {
         get {
+            // put your own api key here
             let api_key = "ZBrv2wKXCEGK34TQx21taIwI8nfxAQrdLWLpJ8to"
+
             let host = "api.nasa.gov"
             let scheme = "https"
             let path = "planetary/apod"
@@ -57,15 +50,8 @@ struct NasaURL {
             urlComponents.host = host
             urlComponents.scheme = scheme
             urlComponents.queryItems = [NSURLQueryItem(name: "api_key", value: api_key),
-                                        NSURLQueryItem(name: "date", value: self.date)]
+                NSURLQueryItem(name: "date", value: self.date)]
             return urlComponents.URL!
         }
-    }
-}
-
-
-extension NetworkClient: NSURLSessionDataDelegate {
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, willCacheResponse proposedResponse: NSCachedURLResponse, completionHandler: (NSCachedURLResponse?) -> Void) {
-        print("wtf")
     }
 }
