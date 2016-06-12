@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680458941D0DBBEE006BDEDD /* NasaURLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680458931D0DBBEE006BDEDD /* NasaURLCache.swift */; };
 		680B1AB31D0B159000C27C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680B1AB21D0B159000C27C48 /* AppDelegate.swift */; };
 		680B1AB51D0B159000C27C48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680B1AB41D0B159000C27C48 /* ViewController.swift */; };
 		680B1AB81D0B159000C27C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680B1AB61D0B159000C27C48 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		680458931D0DBBEE006BDEDD /* NasaURLCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaURLCache.swift; sourceTree = "<group>"; };
 		680B1AAF1D0B159000C27C48 /* Caching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		680B1AB21D0B159000C27C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		680B1AB41D0B159000C27C48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				685C4C771D0C6B000013F389 /* ResponseCollectionViewCell.swift */,
 				685C4C7B1D0C7DD30013F389 /* ResponseCollectionViewCell.xib */,
+				680458931D0DBBEE006BDEDD /* NasaURLCache.swift */,
 				685C4C721D0B77170013F389 /* NetworkClient.swift */,
 				680B1AB21D0B159000C27C48 /* AppDelegate.swift */,
 				680B1AB41D0B159000C27C48 /* ViewController.swift */,
@@ -210,6 +213,7 @@
 				680B1AB51D0B159000C27C48 /* ViewController.swift in Sources */,
 				685C4C781D0C6B000013F389 /* ResponseCollectionViewCell.swift in Sources */,
 				680B1AB31D0B159000C27C48 /* AppDelegate.swift in Sources */,
+				680458941D0DBBEE006BDEDD /* NasaURLCache.swift in Sources */,
 				685C4C731D0B77170013F389 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
