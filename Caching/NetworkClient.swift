@@ -8,24 +8,24 @@
 
 import Foundation
 
-typealias NetworkResult = (AnyObject?, ErrorType?) -> Void
+typealias NetworkResult = (AnyObject?, Error?) -> Void
 
 class NetworkClient: NSObject {
     static let sharedInstance = NetworkClient()
 
-    func getURLResponse(URL: NSURL, completion: NetworkResult) -> NSURLSessionDataTask {
-        let request = NSURLRequest(URL: URL)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+    func getURLResponse(_ URL: Foundation.URL, completion: @escaping NetworkResult) -> URLSessionDataTask {
+        let request = URLRequest(url: URL)
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             if error == nil {
-                NSOperationQueue.mainQueue().addOperationWithBlock {
+                OperationQueue.main.addOperation {
                     completion(response, nil)
                 }
             } else {
-                NSOperationQueue.mainQueue().addOperationWithBlock {
+                OperationQueue.main.addOperation {
                     completion(nil, error)
                 }
             }
-        }
+        }) 
         return task
     }
 }
@@ -37,7 +37,7 @@ struct NasaURL {
         self.date = date
     }
 
-    var url: NSURL {
+    var url: URL {
         get {
             // put your own api key here
             let api_key = "ZBrv2wKXCEGK34TQx21taIwI8nfxAQrdLWLpJ8to"
@@ -45,13 +45,13 @@ struct NasaURL {
             let host = "api.nasa.gov"
             let scheme = "https"
             let path = "planetary/apod"
-            let urlComponents = NSURLComponents()
+            var urlComponents = URLComponents()
             urlComponents.path = "/" + path
             urlComponents.host = host
             urlComponents.scheme = scheme
-            urlComponents.queryItems = [NSURLQueryItem(name: "api_key", value: api_key),
-                NSURLQueryItem(name: "date", value: self.date)]
-            return urlComponents.URL!
+            urlComponents.queryItems = [URLQueryItem(name: "api_key", value: api_key),
+                URLQueryItem(name: "date", value: self.date)]
+            return urlComponents.url!
         }
     }
 }

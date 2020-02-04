@@ -8,10 +8,10 @@
 
 import UIKit
 
-class NasaURLCache: NSURLCache {
-    override func storeCachedResponse(cachedResponse: NSCachedURLResponse, forRequest request: NSURLRequest) {
+class NasaURLCache: URLCache {
+    override func storeCachedResponse(_ cachedResponse: CachedURLResponse, for request: URLRequest) {
 
-        guard let response = cachedResponse.response as? NSHTTPURLResponse else {
+        guard let response = cachedResponse.response as? HTTPURLResponse else {
             NSLog("couldn't convert to http response")
             return
         }
@@ -26,14 +26,14 @@ class NasaURLCache: NSURLCache {
         }
 
         var headers = response.allHeaderFields
-        headers.removeValueForKey("Cache-Control")
+        headers.removeValue(forKey: "Cache-Control")
         headers["Cache-Control"] = "max-age=\(7 * 24 * 60 * 60)"
 
         if let
             headers = headers as? [String: String],
-            newHTTPURLResponse = NSHTTPURLResponse(URL: response.URL!, statusCode: response.statusCode, HTTPVersion: "HTTP/1.1", headerFields: headers) {
-                let newCachedResponse = NSCachedURLResponse(response: newHTTPURLResponse, data: cachedResponse.data)
-                super.storeCachedResponse(newCachedResponse, forRequest: request)
+            let newHTTPURLResponse = HTTPURLResponse(url: response.url!, statusCode: response.statusCode, httpVersion: "HTTP/1.1", headerFields: headers) {
+                let newCachedResponse = CachedURLResponse(response: newHTTPURLResponse, data: cachedResponse.data)
+                super.storeCachedResponse(newCachedResponse, for: request)
         }
     }
 }
