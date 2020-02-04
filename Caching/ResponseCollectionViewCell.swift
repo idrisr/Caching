@@ -31,7 +31,7 @@ class ResponseCollectionViewCell: UICollectionViewCell {
         self.task = NetworkClient.sharedInstance.getURLResponse(URL, completion: { (object, error) in
             self.spinner.stopAnimating()
             guard error == nil else {
-                print("\(error)")
+                print("\(String(describing: error))")
                 return
             }
 
