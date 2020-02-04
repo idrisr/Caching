@@ -42,7 +42,7 @@ class ResponseCollectionViewCell: UICollectionViewCell {
 
             if let apiRemaining = response.allHeaderFields[HeaderFields.XRateLimitRemaining.rawValue] as? String {
                 self.responseLabel.text = apiRemaining
-                let day = date.substring(with: Range<String.Index>(date.characters.index(date.startIndex, offsetBy: 5)..<date.endIndex))
+                let day = date//.substring(with: Range<String.Index>(date.characters.index(date.startIndex, offsetBy: 5)..<date.endIndex))
                 self.dateLabel.text = day
             }
         })
