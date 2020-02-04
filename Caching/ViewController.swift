@@ -7,7 +7,7 @@ import UIKit
 private let ResponseCollectionViewCellIdentifier = "ResponseCell"
 
 class ViewController: UIViewController {
-    var session: NSURLSession?
+    var session: URLSession?
     @IBOutlet weak var collectionView: UICollectionView!
 
     let dates = [
@@ -23,30 +23,30 @@ class ViewController: UIViewController {
         registerCollectionViewCells()
         self.collectionView.dataSource = self
 
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        session = NSURLSession(configuration: config)
+        let config = URLSessionConfiguration.default
+        session = URLSession(configuration: config)
     }
 
-    @IBAction func refreshPressed(sender: AnyObject?) {
+    @IBAction func refreshPressed(_ sender: AnyObject?) {
         self.collectionView.reloadData()
     }
 
-    @IBAction func onClearCachePressed(sender: UIButton) {
-        NSURLCache.sharedURLCache().removeAllCachedResponses()
+    @IBAction func onClearCachePressed(_ sender: UIButton) {
+        URLCache.shared.removeAllCachedResponses()
     }
 
     func registerCollectionViewCells() {
-        collectionView?.registerNib(UINib(nibName: "ResponseCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: ResponseCollectionViewCellIdentifier)
+        collectionView?.register(UINib(nibName: "ResponseCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: ResponseCollectionViewCellIdentifier)
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dates.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ResponseCollectionViewCellIdentifier, forIndexPath: indexPath) as! ResponseCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResponseCollectionViewCellIdentifier, for: indexPath) as! ResponseCollectionViewCell
         let date = self.dates[indexPath.row]
         cell.configure(date)
         return cell
